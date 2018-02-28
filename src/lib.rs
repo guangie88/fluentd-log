@@ -54,35 +54,6 @@ serializable_enum! {
     LevelVisitor
 }
 
-impl_as_ref_from_str! {
-    Level {
-        Error => "Error",
-        Warn => "Warn",
-        Info => "Info",
-        Debug => "Debug",
-        Trace => "Trace",
-    }
-    Error::Parse
-}
-
-impl Default for Level {
-    fn default() -> Level {
-        Level::Info
-    }
-}
-
-impl From<log::Level> for Level {
-    fn from(v: log::Level) -> Level {
-        match v {
-            log::Level::Error => Level::Error,
-            log::Level::Warn => Level::Warn,
-            log::Level::Info => Level::Info,
-            log::Level::Debug => Level::Debug,
-            log::Level::Trace => Level::Trace,
-        }
-    }
-}
-
 impl<'a, A> Logger<'a, A>
 where
     A: ToSocketAddrs + Clone + Send + Sync,
@@ -114,6 +85,35 @@ where
     }
 
     fn flush(&self) {}
+}
+
+impl Default for Level {
+    fn default() -> Level {
+        Level::Info
+    }
+}
+
+impl From<log::Level> for Level {
+    fn from(v: log::Level) -> Level {
+        match v {
+            log::Level::Error => Level::Error,
+            log::Level::Warn => Level::Warn,
+            log::Level::Info => Level::Info,
+            log::Level::Debug => Level::Debug,
+            log::Level::Trace => Level::Trace,
+        }
+    }
+}
+
+impl_as_ref_from_str! {
+    Level {
+        Error => "Error",
+        Warn => "Warn",
+        Info => "Info",
+        Debug => "Debug",
+        Trace => "Trace",
+    }
+    Error::Parse
 }
 
 #[cfg(test)]
