@@ -1,0 +1,6 @@
+[package]
+name = "fluentd-log"
+version = "0.0.0"
+authors = ["Chen Weiguang <chen.weiguang@gmail.com>"]
+
+[dependencies]
