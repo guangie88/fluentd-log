@@ -1,0 +1,10 @@
+version: '2'
+services:
+  lint:
+    build:
+      context: .
+      dockerfile: Dockerfile-lint
+    command:
+      - bash
+      - '-c'
+      - 'rustfmt src/**.rs --write-mode=diff && cargo clippy && cargo test'

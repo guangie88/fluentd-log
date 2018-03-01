@@ -79,7 +79,9 @@ where
 
     fn log(&self, record: &log::Record) {
         if self.enabled(record.metadata()) {
-            let record = RecordBuilder::default().level(record.level()).build();
+            let record = RecordBuilder::default()
+                .level(record.level())
+                .build();
             self.fluent.clone().post(record).unwrap();
         }
     }
