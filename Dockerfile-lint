@@ -4,7 +4,7 @@ WORKDIR /app
 COPY ./Cargo.toml ./rustfmt.toml ./
 
 RUN set -x \
-    && cargo fetch --locked -v
+    && cargo fetch -v
 
 COPY ./src/ ./src/
 
