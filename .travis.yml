@@ -1,0 +1,10 @@
+services:
+  - docker
+before_script:
+  - docker-compose -f docker-compose.lint.yml build
+script:
+  - docker-compose -f docker-compose.lint.yml run lint
+branches:
+  only:
+    - master 
+
