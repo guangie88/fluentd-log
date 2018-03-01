@@ -1,7 +1,7 @@
 FROM guangie88/rustfmt-clippy:nightly-2018-02-27
 
 WORKDIR /app
-COPY ./Cargo.toml ./Cargo.lock ./rustfmt.toml ./
+COPY ./Cargo.toml ./rustfmt.toml ./
 
 RUN set -x \
     && cargo fetch --locked -v
